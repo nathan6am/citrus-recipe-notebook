@@ -15,9 +15,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "extraPods": [
+        {
+          "name": "simdjson",
+          "configurations": [
+            "Debug",
+            "Release"
+          ],
+          "path": "../node_modules/@nozbe/simdjson",
+          "modular_headers": true
+        }
+      ]
     },
     "android": {
+      "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +37,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      "expo-build-properties",
+      "@morrowdigital/watermelondb-expo-plugin"
+    ]
   }
 }
