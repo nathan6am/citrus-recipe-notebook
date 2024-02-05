@@ -17,5 +17,5 @@ export const defaultSettings: AppSettings = {
 
 export const SettingsContext = createContext<{
   settings: AppSettings;
-  setSettings: React.Dispatch<React.SetStateAction<AppSettings>>;
-}>({ settings: defaultSettings, setSettings: () => {} });
+  updateSettings: (settings: Partial<AppSettings>) => void;
+}>({ settings: defaultSettings, updateSettings: () => {} });

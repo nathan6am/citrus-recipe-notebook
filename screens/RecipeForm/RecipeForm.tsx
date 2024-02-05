@@ -8,8 +8,8 @@ interface FormValues {
   title: string;
   description?: string;
   servings: number;
-  prepTime: number;
-  cookTime: number;
+  prepTime?: string;
+  cookTime?: string;
   images: string[];
   ingredients: string[];
   steps: string[];
@@ -21,8 +21,8 @@ export default function RecipeForm() {
       title: "",
       description: "",
       servings: 4,
-      prepTime: 0,
-      cookTime: 0,
+      prepTime: "",
+      cookTime: "",
       images: [],
       ingredients: [],
       steps: [],
@@ -31,8 +31,16 @@ export default function RecipeForm() {
   return (
     <FormProvider {...methods}>
       <Stack.Navigator>
-        <Stack.Screen name="RecipeFormTabs" component={RecipeFormTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="Add Ingredient" component={View} options={{ headerShown: false, presentation: "modal" }} />
+        <Stack.Screen
+          name="RecipeFormTabs"
+          component={RecipeFormTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Add Ingredient"
+          component={View}
+          options={{ headerShown: false, presentation: "modal" }}
+        />
       </Stack.Navigator>
     </FormProvider>
   );

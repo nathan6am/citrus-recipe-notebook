@@ -27,6 +27,7 @@ export default function SettingsStack() {
         name="SettingsHome"
         component={Settings}
         options={{
+          headerShown: false,
           headerTitle: "Settings",
         }}
       />

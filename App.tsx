@@ -2,7 +2,12 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import BaseStack from "./navigators/BaseStack";
 import { NavigationContainer } from "@react-navigation/native";
-import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_600SemiBold,
+} from "@expo-google-fonts/poppins";
 import { useContext, createContext, useState } from "react";
 import { defaultSettings, SettingsContext } from "@/context/SettingsContext";
 import { ThemeContext } from "./theme";
@@ -27,7 +32,14 @@ export default function App() {
     return null;
   }
   return (
-    <SettingsContext.Provider value={{ settings, setSettings }}>
+    <SettingsContext.Provider
+      value={{
+        settings,
+        updateSettings: (updates) => {
+          setSettings((prev) => ({ ...prev, ...updates }));
+        },
+      }}
+    >
       <ThemeContext.Provider value={{ theme: settings.darkMode ? darkTheme : lightTheme }}>
         <StatusBar style="light" />
         <SafeAreaView style={{ flex: 1 }}>
@@ -39,10 +51,16 @@ export default function App() {
                 background: settings.darkMode
                   ? darkTheme.colors.backgrounds.baseline
                   : lightTheme.colors.backgrounds.baseline,
-                card: settings.darkMode ? darkTheme.colors.backgrounds.card : lightTheme.colors.backgrounds.card,
+                card: settings.darkMode
+                  ? darkTheme.colors.backgrounds.card
+                  : lightTheme.colors.backgrounds.card,
                 text: settings.darkMode ? darkTheme.colors.text.body : lightTheme.colors.text.body,
-                border: settings.darkMode ? darkTheme.colors.text.onPrimary : lightTheme.colors.text.onPrimary,
-                notification: settings.darkMode ? darkTheme.colors.secondary : lightTheme.colors.secondary,
+                border: settings.darkMode
+                  ? darkTheme.colors.text.onPrimary
+                  : lightTheme.colors.text.onPrimary,
+                notification: settings.darkMode
+                  ? darkTheme.colors.secondary
+                  : lightTheme.colors.secondary,
               },
             }}
           >
