@@ -9,7 +9,6 @@ export default function IngredientsForm() {
   const navigation = useNavigation();
   return (
     <Container>
-      <Button onPress={() => navigation.navigate("Add Ingredient")}>Add Ingredient</Button>
       <Text>IngredientsForm</Text>
     </Container>
   );

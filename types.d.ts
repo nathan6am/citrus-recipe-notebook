@@ -45,10 +45,3 @@ interface AppSettings {
   darkMode: boolean;
   language: string;
 }
-import type { BaseStackParamList } from "./navigators/BaseStack";
-
-declare global {
-  namespace ReactNavigation {
-    interface RootParamList extends BaseStackParamList {}
-  }
-}
